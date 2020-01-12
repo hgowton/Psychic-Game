@@ -1,7 +1,7 @@
 var psychicGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 var userGuess = '';
-var wins = 0; 
+var wins = 1; 
 var loses = 0;
 var totalGuesses = 9;
 var compGuess = '';
@@ -11,9 +11,9 @@ var compGuess = '';
 var psychicLetter = document.getElementById("psychicLetter");
 
 var userGuess = document.getElementById("userGuess");
-var totalGuesses = document.getElementById("totalGuesses");
-var wins = document.getElementById("wins");
-var loses = document.getElementById("loses");
+var displayGuessLeft = document.getElementById("totalGuesses");
+var displayWins = document.getElementById("wins");
+var displayLoses = document.getElementById("loses");
 
 
 //This funciton selects a random letter from my Psychic array
@@ -39,18 +39,20 @@ document.onkeyup = function(event) {
         if(userGuess2 === compGuess[i]){
             console.log("Yes " + compGuess[i]);
             alert("You guessed right!")
-            // wins.textContent = wins + 1;
-            var x = 0;
-            wins.textContent= x + 1;
+            displayWins.textContent = "wins:" +wins++;
+            getPsychicLetter();
+
+
         }
 
         else {
             console.log(userGuess);
-            totalGuesses--;
-            loses.textContent= 
+            displayGuessLeft.textContent = "Total Guesses Left: " + totalGuesses--;
+
         }  
 
     }
 }
+
 
     console.log(compGuess);
