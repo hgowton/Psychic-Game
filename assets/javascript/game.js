@@ -1,20 +1,20 @@
 var psychicGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 var userGuess = '';
-var userWins = 0;
-var userLosses = 0;
-var totalGuesses = 0;
+var wins = 0; 
+var loses = 0;
+var totalGuesses = 9;
 var compGuess = '';
 
 
 //var psychicLetter should not appear on final project - shows computer's guess
 var psychicLetter = document.getElementById("psychicLetter");
 
-var userGuessSoFar = [];
-var userGuessSoFarDisplay = document.getElementById(userGuessSoFar[userGuessSoFar]);
-var displayGuessLeft = document.getElementById("totalGuesses");
-var displayWins = document.getElementById("wins");
-var displayLoses = document.getElementById("loses");
+var userGuess = document.getElementById("userGuess");
+var totalGuesses = document.getElementById("totalGuesses");
+var wins = document.getElementById("wins");
+var loses = document.getElementById("loses");
+
 
 //This funciton selects a random letter from my Psychic array
 function getPsychicLetter () {
@@ -29,29 +29,28 @@ function getPsychicLetter () {
 
 compGuess = getPsychicLetter();
 
-
 document.onkeyup = function(event) {
-    // Determines which key was pressed.
-    userGuess = event.key;
-    userGuessSoFar.push(userGuess); 
-        
+    // Determines which key was pressed and adds letter to already guessed field on screen
+    userGuess.textContent += event.key + ", ";
+    userGuess2 = event.key;
+   
     for (i=0; i < compGuess.length; i++){
 
-        if(userGuess === compGuess[i]){
-            console.log(compGuess[i]);
+        if(userGuess2 === compGuess[i]){
+            console.log("Yes " + compGuess[i]);
             alert("You guessed right!")
-            //+1 wins
-            wins += 1;
-            //reset the guess counter
-            //reset the guess array
+            // wins.textContent = wins + 1;
+            var x = 0;
+            wins.textContent= x + 1;
         }
+
         else {
             console.log(userGuess);
-            console.log(userGuessSoFar);
-            //remove one guess
-            totalGuesses -= 1;
-            //display incorrect guess
+            totalGuesses--;
+            loses.textContent= 
         }  
 
     }
 }
+
+    console.log(compGuess);
