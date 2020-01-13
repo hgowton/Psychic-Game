@@ -3,7 +3,7 @@ var psychicGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
 var userGuess = '';
 var wins = 1; 
 var loses = 0;
-var totalGuesses = 9;
+var totalGuess = 9;
 var compGuess = '';
 
 
@@ -11,7 +11,7 @@ var compGuess = '';
 var psychicLetter = document.getElementById("psychicLetter");
 
 var userGuess = document.getElementById("userGuess");
-var displayGuessLeft = document.getElementById("totalGuesses");
+var displayGuessLeft = document.getElementById("totalGuess");
 var displayWins = document.getElementById("wins");
 var displayLoses = document.getElementById("loses");
 
@@ -39,18 +39,24 @@ document.onkeyup = function(event) {
         if(userGuess2 === compGuess[i]){
             console.log("Yes " + compGuess[i]);
             alert("You guessed right!")
-            displayWins.textContent = "wins:" +wins++;
+            displayWins.textContent = "wins: " +wins++;
+            displayGuessLeft.textContent = + 9;
             getPsychicLetter();
-
-
         }
-
         else {
             console.log(userGuess);
-            displayGuessLeft.textContent = "Total Guesses Left: " + totalGuesses--;
+            displayGuessLeft.textContent = -1;
 
         }  
 
+    }
+
+    if (totalGuess = 0) {
+        displayLoses.textContent = "loses: " +loses++;
+        displayGuessLeft.textContent --;
+
+        // displayGuessLeft.textContent = "Total Guesses Left: " + totalGuess + 9;
+        getPsychicLetter();
     }
 }
 
