@@ -10,7 +10,6 @@ var userGuess = '';
 var wins = 0;
 var losses = 0;
 var totalGuess = 9;
-
 var compGuess = '';
 
 
@@ -35,7 +34,9 @@ var displayGuess = document.getElementById("userGuessSoFar")
 //Variables to Hold references to the places in the HTML where we want to display things
 var winsText = document.getElementById("wins-text");
 var lossesText = document.getElementById("losses-text");
-var totalGuessText = document.getElementById("guesses-text")
+var totalGuessText = document.getElementById("guesses-text");
+//NEWNEW attempt of psychic string
+var PsychicString = document.getElementById("psychicstring");
 
 
 //This funciton selects a random letter from my Psychic array
@@ -58,10 +59,9 @@ document.onkeyup = function(event) {
     userGuess = event.key;
     userGuessSoFar.push(userGuess); 
 
-    // attempt to get array to display on screen
-    // for(i=0; i<userGuessSoFar.length; i++) {
-    //     document.getElementById("userGuess").innerHTML;
-    // }
+    var guessId = document.getElementById("userGuessSoFar")
+guessId.textContent = "Letters Guessed: " + userGuessSoFar + " ";
+
 
     for (j=0; j < compGuess.length; j++){
 
@@ -73,7 +73,8 @@ document.onkeyup = function(event) {
             wins++;
             totalGuess = 9;
             userGuessSoFar = [];
-            getPsychicLetter();
+            guessId.textContent = "Letters Guessed: " + userGuessSoFar + " ";
+            compGuess = getPsychicLetter();
             //reset the guess counter
             //reset the guess array
         }
@@ -92,7 +93,8 @@ document.onkeyup = function(event) {
         losses++;
         totalGuess = 9;
         userGuessSoFar = [];
-        getPsychicLetter();
+        guessId.textContent = "Letters Guessed: " + userGuessSoFar + " ";
+        compGuess = getPsychicLetter();
         alert("You Lost")
     }
 
@@ -100,8 +102,6 @@ document.onkeyup = function(event) {
    winsText.textContent = "wins: " + wins;
    lossesText.textContent = "losses: " + losses;
    totalGuessText.textContent = "guesses left: " + totalGuess;
-//    ATTEMPT3 display array
-//    userGuessText.textContnet = "letters guessed; " + userGuess;
 
 }; 
 
